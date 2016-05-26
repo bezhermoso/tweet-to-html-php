@@ -1,0 +1,16 @@
+{
+    "name": "bez/tweet-to-html",
+    "description": "Convert plain-text tweets to HTML with embedded tweet entities (user mentions, hash tags, URLs, media etc.)",
+    "require-dev": {
+        "phpunit/phpunit": "5.3"
+    },
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Bez Hermoso",
+            "email": "bezalelhermoso@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
