@@ -30,7 +30,6 @@ class TweetFormatter
                     return [
                         'start' => $e['indices'][0],
                         'end' => $e['indices'][1],
-                        'type' => $entityType,
                         'replacement_func' => $callable,
                         'data' => $e
                     ];
@@ -38,6 +37,8 @@ class TweetFormatter
             }
         }
 
+        // Sort by start index in descending order. Replacements will begin
+        // from the last entity and work its way to the first.
         usort($sorted, function ($a, $b) {
             return $b['start'] - $a['start'];
         });
@@ -56,6 +57,15 @@ class TweetFormatter
 
     }
 
+    /**
+     * Finds the index of the first non-whitespace char after the nearest whitespace to
+     * the left of char on $index.
+     *
+     * Sometimes $index starts in the middle of a word. This function wil
+     * return the index of the first character of said word.
+     *
+     * @todo This may no longer be needed. It's here just to make sure.
+     */
     public static function nearestNonWhitespace($text, $index) {
 
         do {
